@@ -1,6 +1,6 @@
 #include "LED.h"
 
-Led:: Led(uint8_t pin):  //o azul é a classe e o verde é a função
+Led:: Led(uint8_t pin) :
     pino(pin),
     estado(LOW),
     desligarPorTempo(false),
@@ -9,9 +9,11 @@ Led:: Led(uint8_t pin):  //o azul é a classe e o verde é a função
     tempoEspera(0),
     estadoPiscar(false),
     repeticoes(0)
- {
+
+
+{
     pinMode(pino, OUTPUT);
- }
+} 
 
 void Led::ligar()
 {
@@ -42,26 +44,32 @@ void Led::alternar()
 
 void Led::update()
 {
-    if(desligarPorTempo) funcaoDesligamento();
-    if(estadoPiscar)funcaoPiscar();
-    
+    if(desligarPorTempo)
+    funcaoDesligamento();
+
+    if(estadoPiscar)
+    funcaoPiscar();
+
     digitalWrite(pino, estado);
 }
-
 bool Led::getEstado()
-{   
+{
 return estado;
 }
 
-uint8_t Led::getPino(){
-    return pino;
+uint8_t Led::getPino()
+{
+        return pino;
 }
 
-void Led::setEstado(bool estado){
+void Led::setEstado(bool estado)
+{
     this->estado = estado;
-
-
+    desligarPorTempo = false;
+    estadoPiscar = false;
 }
+
+
 
 void Led::piscar()
 {
@@ -69,7 +77,6 @@ void Led::piscar()
     tempoEspera = 500;
     tempoAnteriorPiscar = millis();
     estado = HIGH;
-    desligarPorTempo = false;
 }
 
 void Led::piscar(float frequencia)
@@ -109,11 +116,11 @@ void Led::funcaoPiscar()
     }
 }
 
-void Led::funcaoDesligamento(){
-    if(millis() >= desligarNoMomento)
+void Led::funcaoDesligamento()
+{
+ if(millis() >= desligarNoMomento)
         {
         estado = LOW;
         desligarPorTempo = false;
         }
-    
 }
