@@ -26,8 +26,9 @@ private:
 
     /**
      * @brief Processa a logica de piscada do LED
-
+    */
     void funcaoPiscar();
+
     /**
      * @brief Processa o desligamento temporizado
      */
@@ -62,20 +63,21 @@ public:
 
     void piscar();
     /**
-     * @brief 
+     * @brief Inicia a piscada continua em 1HZ
      */
     
 
     void piscar(float frequencia);
     /**
-     * @brief Pisca o LED uma quantidade definida de vezes
+     * @brief Inicia a piscada continua em uma quantidade em HZ determinada
      * @param frequencia Frequencia da piscada em hertz
-     * @param repeticoes Quantidade de piscadas completas
      */
 
     void piscar(float frequencia, uint16_t repeticoes);
     /**
-     * @brief 
+     * @brief Pisca o LED uma quantidade definida as vezes 
+     * @param frequencia Frequencia da piscada em HZ
+     * @param repeticoes Quantidade de piscadas completas 
      */
 
     bool getEstado();
