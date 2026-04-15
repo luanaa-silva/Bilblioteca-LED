@@ -1,0 +1,21 @@
+/*
+Autor: Luana Alves
+Programa: Exercício 1 - Testando Biblioteca LED
+Descrição: Fazendo o Led piscar 
+*/
+
+#include <Arduino.h>
+#include <LED.h>
+
+
+Led ledA(45);
+
+
+void setup() {
+  ledA.piscar(2);
+
+}
+
+void loop() {
+  ledA.update();
+}
